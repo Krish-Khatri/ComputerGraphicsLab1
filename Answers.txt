@@ -1,3 +1,11 @@
+Polygon[length,sides]=For[ii,1,sides,Block[Forward[length],Turn[(2*Pi)/sides]]]
+#
+Star[length,vertices]= For[ii,1,vertices,Block[Forward[length],Turn[(4*Pi)/vertices]]]
+#
+Circle[radius]=Polygon[(2*Pi*radius)/360,360]
+#
+InscribedStar[radius,vertices] = Block[Star[radius*2,vertices],Turn[(-360/vertices)*(Pi/180)],Circle[radius]]
+#
 Spiral[length,angle,scale]=For[ii,1,20,Block[Forward[length],Turn[angle],Resize[scale]]]
 #
 Shift[distance,repeats,procedure] = For[ii,1,repeats,Block[Hold[procedure],Move[distance]]]
