@@ -1,0 +1,20 @@
+Spiral[length,angle,scale]=For[ii,1,20,Block[Forward[length],Turn[angle],Resize[scale]]]
+#
+Shift[distance,repeats,procedure] = For[ii,1,repeats,Block[Hold[procedure],Move[distance]]]
+#
+Spin[angle,repeats,procedure]= For[ii,1,repeats,Block[Hold[procedure],Turn[angle]]]
+#
+Scale[scale,repeats,procedure] = For[ii,1,repeats,Block[Hold[procedure],Resize[scale]]]
+#
+KochSnowflakeSide[level,length]= Eq[level,0,Forward[length],Block[
+        Resize[1/3.0],
+        KochSnowflakeSide[level-1,length],
+        Turn[Pi/3.0],
+        KochSnowflakeSide[level-1,length],
+        Turn[(-2*Pi)/3.0],
+        KochSnowflakeSide[level-1,length],
+        Turn[Pi/3.0],
+        KochSnowflakeSide[level-1,length],
+        Resize[3.0]
+    ]
+]
